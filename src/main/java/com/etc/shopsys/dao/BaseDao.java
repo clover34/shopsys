@@ -61,7 +61,7 @@ public abstract class BaseDao<T> {
         // 声明结果集对象
         ResultSet rs = null;
         // 声明集合
-        List<T> target = new ArrayList<>();
+        List<T> target = new ArrayList<T>();
 
         try {
             // 准备语句
