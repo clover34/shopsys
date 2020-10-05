@@ -6,7 +6,7 @@ import java.util.Date;
 public class Orders implements Serializable {
     private String UUID; // uuid;
     private String oid; //订单编号
-    private int uid; // 用户编号
+    private String uid; // 用户编号
     private double total; // 金额
     private Date createdate; // 订单创建时间
     private int osid; // 状态编号
@@ -14,7 +14,7 @@ public class Orders implements Serializable {
     public Orders() {
     }
 
-    public Orders(String UUID, String oid, int uid, double total, Date createdate, int osid) {
+    public Orders(String UUID, String oid, String uid, double total, Date createdate, int osid) {
         this.UUID = UUID;
         this.oid = oid;
         this.uid = uid;
@@ -51,11 +51,11 @@ public class Orders implements Serializable {
         this.oid = oid;
     }
 
-    public int getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 

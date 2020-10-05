@@ -16,10 +16,10 @@ public class CounterUtil {
      * @return
      */
     public static String getCounterStr(String prefix, int length, int record) {
-        return prefix + String.format("%0"+ length +"d", record);
+        return prefix + String.format("%0"+ length +"d", (record+1));
     }
     /** 获得指定位数，默认4位*/
     public static String getCounterStr(String prefix, int record) {
-        return prefix + String.format("%04d", record);
+        return prefix + String.format("%04d", (record+1));
     }
 }
