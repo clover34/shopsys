@@ -10,13 +10,15 @@ import java.io.Serializable;
  * @Version 1.0
  **/
 public class UserAddress implements Serializable {
+    private String UUID;// UUID主键
     private String uid;// 用户编号
     private String contactname;// 联系人姓名
     private String phone;;// 联系电话
     private String uaddress;// 用户收件地址
 
     // 全参构造方法
-    public UserAddress(String uid, String contactname, String phone, String uaddress) {
+    public UserAddress(String UUID, String uid, String contactname, String phone, String uaddress) {
+        this.UUID = UUID;
         this.uid = uid;
         this.contactname = contactname;
         this.phone = phone;
@@ -31,14 +33,22 @@ public class UserAddress implements Serializable {
     @Override
     public String toString() {
         return "UserAddress{" +
-                "uid='" + uid + '\'' +
+                "UUID='" + UUID + '\'' +
+                ", uid='" + uid + '\'' +
                 ", contactname='" + contactname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", uaddress='" + uaddress + '\'' +
                 '}';
     }
-
     // get & set 方法
+    public String getUUID() {
+        return UUID;
+    }
+
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
+    }
+
     public String getUid() {
         return uid;
     }

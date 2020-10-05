@@ -1,5 +1,7 @@
 package com.etc.shopsys.dao;
 
+
+
 import com.etc.shopsys.utils.DBUtil;
 
 import java.sql.Connection;
@@ -23,7 +25,7 @@ public abstract class BaseDao<T> {
      * @param params
      * @return
      */
-    public int executeUpdate(String sql, Object...params){
+    public boolean executeUpdate(String sql, Object...params){
         // 步骤一二：加载驱动获得数据库连接
         Connection conn = DBUtil.getConnection();
         // 声明预编译对象
@@ -37,14 +39,18 @@ public abstract class BaseDao<T> {
                 }
             }
             // 步骤三四：执行语句，处理结果
-            return pstm.executeUpdate();
+            int i = pstm.executeUpdate();
+            if(i > 0){
+                return true;
+            }
         } catch (SQLException e) {
+            System.out.println("--\n\t执行语句异常：" + pstm);
             e.printStackTrace();
         } finally {
             // 关闭资源
             DBUtil.close(null, pstm, conn);
         }
-        return 0;
+        return false;
     }
 
     /**
@@ -79,6 +85,7 @@ public abstract class BaseDao<T> {
                 target.add(t);
             }
         } catch (SQLException e) {
+            System.out.println("--\n\t执行语句异常：" + pstm);
             e.printStackTrace();
         } finally {
             // 步骤五：关闭资源
@@ -115,7 +122,10 @@ public abstract class BaseDao<T> {
                 return getEntty(rs);
             }
         } catch (SQLException e) {
+            System.out.println("--\n\t执行语句异常：" + pstm);
             e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, pstm, conn);
         }
         return null;
     }
@@ -144,6 +154,45 @@ public abstract class BaseDao<T> {
                 count = rs.getInt(1);
             }
         } catch (SQLException e) {
+            System.out.println("--\n\t执行语句异常：" + pstm);
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            DBUtil.close(rs, pstm, conn);
+        }
+        return count;
+    }
+
+    /**
+     * 查询总记录数
+     * @param sql
+     * @return
+     */
+    public int findCount(String sql, Object...params){
+        // 步骤一二：加载驱动获得连接
+        Connection conn = DBUtil.getConnection();
+        // 声明预编译语句
+        PreparedStatement pstm = null;
+        // 声明结果集对象
+        ResultSet rs = null;
+        // 记录数
+        int count = 0;
+        try {
+            // 准备语句
+            pstm = conn.prepareStatement(sql);
+            if(params != null){
+                for(int i = 0; i < params.length; i++){
+                    pstm.setObject(i+1, params[i]);
+                }
+            }
+            // 执行语句
+            rs = pstm.executeQuery();
+            // 处理结果
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("--\n\t执行语句异常：" + pstm);
             e.printStackTrace();
         } finally {
             // 关闭资源

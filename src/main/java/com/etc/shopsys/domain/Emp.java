@@ -1,5 +1,7 @@
 package com.etc.shopsys.domain;
 
+import com.etc.shopsys.utils.DBUtil;
+
 import java.io.Serializable;
 
 /**
@@ -16,11 +18,11 @@ public class Emp implements Serializable {
     private String empaccount;// 员工账号
     private String password;// 密码
     private int dimission;// 是否离职：1-离职 0-在职
-    private int etid;// 职位编号
+    private EmpType etid;// 职位编号
 
     // 全参构造方法
-    public Emp(String UUID, String empid, String empname, String empaccount, String password, int dimission, int etid) {
-        this.UUID = UUID;
+    public Emp(String empid, String empname, String empaccount, String password, int dimission, EmpType etid) {
+        this.UUID = DBUtil.getUUID();
         this.empid = empid;
         this.empname = empname;
         this.empaccount = empaccount;
@@ -31,6 +33,7 @@ public class Emp implements Serializable {
 
     // 无参构造方法
     public Emp() {
+
     }
 
     // toString 方法
@@ -96,11 +99,11 @@ public class Emp implements Serializable {
         this.dimission = dimission;
     }
 
-    public int getEtid() {
+    public EmpType getEtid() {
         return etid;
     }
 
-    public void setEtid(int etid) {
+    public void setEtid(EmpType etid) {
         this.etid = etid;
     }
 }

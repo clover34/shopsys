@@ -1,11 +1,8 @@
 package com.etc.shopsys.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.sql.*;
-import java.util.Properties;
+import java.util.UUID;
 
 /**
  * 连接数据库工具
@@ -49,7 +46,7 @@ public class DBUtil {
      * @param pstm
      * @param rs
      */
-    public static void close(ResultSet rs,PreparedStatement pstm,  Connection conn){
+    public static void close(ResultSet rs, PreparedStatement pstm, Connection conn){
         try {
             if(rs != null){
                 rs.close();
@@ -65,6 +62,15 @@ public class DBUtil {
             throwables.printStackTrace();
         }
     }
+
+    /**
+     * 获取一个UUID
+     * @return
+     */
+    public static String getUUID(){
+        return UUID.randomUUID().toString();
+    }
+
 //    私有化构造方法
     private DBUtil(){}
 }
