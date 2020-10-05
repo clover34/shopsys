@@ -35,37 +35,60 @@ public class EmpTypeServiceImpl implements EmpTypeService {
     }
 
     /**
-     *
+     * 删除：根据职位类型编号删除类型信息
      * @param etid
      * @return
      */
     @Override
     public String deleteEmpTypeById(String etid) {
-        return null;
+        return etDao.deleteEmpTypeById(etid) ? "删除成功" : "删除失败";
     }
 
+    /**
+     * 修改：根据编号修改职位信息
+     * @param empType
+     * @return
+     */
     @Override
     public String updateEmpTypeById(EmpType empType) {
-        return null;
+        return etDao.updateEmpTypeById(empType) ? "修改成功" : "修改失败";
     }
 
+    /**
+     * 查询：根据编号查询类型信息
+     * @param etid
+     * @return
+     */
     @Override
     public EmpType findEmpTypeById(String etid) {
-        return null;
+        return etDao.findEmpTypeById(etid);
     }
 
+    /**
+     * 查询：查询所有职位信息
+     * @return
+     */
     @Override
     public List<EmpType> findAllEmpType() {
-        return null;
+        return etDao.findAllEmpType();
     }
 
+    /**
+     * 查询：查询职位信息总记录数
+     * @return
+     */
     @Override
     public int findEmpTypeCount() {
-        return 0;
+        return etDao.findEmpTypeCount();
     }
 
+    /**
+     * 查询：根据名称查询查询类型信息
+     * @param etname
+     * @return
+     */
     @Override
     public EmpType findEmpTypeByEtName(String etname) {
-        return null;
+        return etDao.findEmpTypeByEtName(etname);
     }
 }

@@ -172,4 +172,27 @@ public class EmpDaoImpl extends BaseDao<Emp> implements EmpDao {
         String sql = "select * from emp where empname=? and password=?";
         return super.executeQueryOne(sql, empname, password);
     }
+
+    /**
+     * 查询：根据账号和密码查询员工信息
+     * @param account
+     * @param password
+     * @return
+     */
+    @Override
+    public Emp findEmpByAccountAndPwd(String account, String password) {
+        String sql = "select * from emp where empaccount=? and password=?";
+        return super.executeQueryOne(sql, account, password);
+    }
+
+    /**
+     * 查询：根据账号查询员工信息
+     * @param account
+     * @return
+     */
+    @Override
+    public Emp findEmpByAccount(String account) {
+        String sql = "select * from emp where empaccount=?";
+        return super.executeQueryOne(sql, account);
+    }
 }

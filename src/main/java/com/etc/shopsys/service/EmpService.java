@@ -1,22 +1,22 @@
-package com.etc.shopsys.dao;
+package com.etc.shopsys.service;
 
 import com.etc.shopsys.domain.Emp;
 import com.etc.shopsys.domain.Page;
 
 /**
- * @ClassName EmpDao
+ * @ClassName EmpService
  * @Description TODO
  * @Author Administrator
- * @Date 20/09/30 15:45
+ * @Date 20/10/05 14:41
  * @Version 1.0
  **/
-public interface EmpDao {
+public interface EmpService {
     // 增：新增员工信息
-    boolean insertEmp(Emp emp);
+    String insertEmp(Emp emp);
     // 删：根据编号删除员工信息，将是否删除字段修改成 0
-    boolean deleteEmpById(String empid);
+    String deleteEmpById(String empid);
     // 改：根据编号修改员工信息
-    boolean updateEmpById(Emp emp);
+    String updateEmpById(Emp emp);
     // 查：根据编号查询员工信息
     Emp findEmpById(String empid);
     // 查：根据姓名查询员工信息
@@ -34,6 +34,4 @@ public interface EmpDao {
     Emp findEmpByNameAndPwd(String empname, String password);
     // 登录：根据账号和密码查询用户信息
     Emp findEmpByAccountAndPwd(String account, String password);
-    // 查询：根据账号查询员工信息
-    Emp findEmpByAccount(String account);
 }

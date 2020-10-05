@@ -126,6 +126,17 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     }
 
     /**
+     * 查询：根据用户名查询用户是否存在
+     * @param username
+     * @return
+     */
+    @Override
+    public User findUserByName(String username) {
+        String sql = "select * from user where username=?";
+        return super.executeQueryOne(sql, username);
+    }
+
+    /**
      * 查询：查询用戶总记录数
      * @return
      */

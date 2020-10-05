@@ -1,7 +1,10 @@
 package UtilTest;
 
+import com.etc.shopsys.utils.DateUtil;
 import com.etc.shopsys.utils.EncryptUtil;
 import org.junit.Test;
+
+import java.util.Date;
 
 /**
  * @ClassName MD5Test
