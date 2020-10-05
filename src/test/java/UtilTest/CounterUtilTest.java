@@ -13,7 +13,7 @@ import org.junit.Test;
 public class CounterUtilTest {
     @Test
     public void test(){
-        System.out.println("默认4位" + CounterUtil.getCounterStr("user", 10));
+        System.out.println("默认4位" + CounterUtil.getCounterStr("goods", 101));
         System.out.println("5位" + CounterUtil.getCounterStr("user", 5, 111));
     }
 }

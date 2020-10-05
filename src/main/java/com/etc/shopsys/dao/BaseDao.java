@@ -206,5 +206,5 @@ public abstract class BaseDao<T> {
      * @param rs
      * @return
      */
-    protected abstract T getEntty(ResultSet rs);
+    protected abstract T getEntty(ResultSet rs) throws SQLException;
 }
