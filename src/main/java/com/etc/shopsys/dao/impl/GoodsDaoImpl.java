@@ -54,6 +54,17 @@ public class GoodsDaoImpl extends BaseDao<Goods> implements GoodsDao {
         return super.executeQueryOne(sql,gid);
     }
     /*
+     * 查:根据名称查询商品信息
+     * @param gid
+     * @return
+     */
+    @Override
+    public Goods findGoodsByName(String gname) {
+        String sql="select * from goods where gname=?";
+        return super.executeQueryOne(sql,gname);
+    }
+
+    /*
      * 查:查询所有商品信息
      * @param g
      * @return

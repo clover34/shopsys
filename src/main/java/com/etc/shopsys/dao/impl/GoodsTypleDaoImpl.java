@@ -25,7 +25,7 @@ public class GoodsTypleDaoImpl extends BaseDao<GoodsTyple> implements GoodsTyple
      * @return
      */
     @Override
-    public boolean deleteGoodsTypeById(int gtid) {
+    public boolean deleteGoodsTypeById(String gtid) {
         String sql="delete from goodstype where gtid=?";
         return super.executeUpdate(sql,gtid);
     }
@@ -35,7 +35,7 @@ public class GoodsTypleDaoImpl extends BaseDao<GoodsTyple> implements GoodsTyple
      * @return
      */
     @Override
-    public boolean updateGoodsTypeById(int gtid,String gtname) {
+    public boolean updateGoodsTypeById(String gtid,String gtname) {
         String sql="update goodstype set gtname=? where gtid=?";
         return super.executeUpdate(sql,gtname,gtid);
     }
@@ -45,7 +45,7 @@ public class GoodsTypleDaoImpl extends BaseDao<GoodsTyple> implements GoodsTyple
      * @return
      */
     @Override
-    public GoodsTyple findGoodsTypeById(int gtid) {
+    public GoodsTyple findGoodsTypeById(String gtid) {
         String sql="select * from goodstype where gtid=?";
         return super.executeQueryOne(sql,gtid);
     }
@@ -90,7 +90,7 @@ public class GoodsTypleDaoImpl extends BaseDao<GoodsTyple> implements GoodsTyple
     protected GoodsTyple getEntty(ResultSet rs) {
         GoodsTyple gt=new GoodsTyple();
         try {
-            gt.setGtid(rs.getInt("gtid"));
+            gt.setGtid(rs.getString("gtid"));
             gt.setGtname(rs.getString("gtname"));
         } catch (SQLException e) {
             System.out.println("获取商品类别信息异常");

@@ -12,6 +12,8 @@ public interface GoodsService {
     String updateGoodsById(Goods goods);
     //查:根据编号查询商品信息
     Goods findGoodsById(String gid);
+    //查:根据名称查询商品信息
+    Goods findGoodsByGname(String gname);
     //查:查询所有商品信息
     Page<Goods> findAllGoods(int currentPage, int sizePage);
     //模糊查询:根据商品名称查询商品信息

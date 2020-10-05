@@ -3,13 +3,13 @@ package com.etc.shopsys.domain;
 import java.io.Serializable;
 //商品类型表
 public class GoodsTyple implements Serializable {
-    private int gtid;//类型编号
+    private String gtid;//类型编号
     private String gtname;//类型名称
 
     public GoodsTyple() {
     }
 
-    public GoodsTyple(int gtid, String gtname) {
+    public GoodsTyple(String gtid, String gtname) {
         this.gtid = gtid;
         this.gtname = gtname;
     }
@@ -22,11 +22,11 @@ public class GoodsTyple implements Serializable {
                 '}';
     }
 
-    public int getGtid() {
+    public String getGtid() {
         return gtid;
     }
 
-    public void setGtid(int gtid) {
+    public void setGtid(String gtid) {
         this.gtid = gtid;
     }
 

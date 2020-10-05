@@ -10,6 +10,8 @@ import com.etc.shopsys.domain.Goods;
 import com.etc.shopsys.domain.GoodsEvaluate;
 import com.etc.shopsys.domain.GoodsTyple;
 import com.etc.shopsys.domain.Page;
+import com.etc.shopsys.service.GoodsService;
+import com.etc.shopsys.service.impl.GoodsServiceImpl;
 import com.etc.shopsys.utils.CounterUtil;
 import com.etc.shopsys.utils.DBUtil;
 import jdk.internal.dynalink.linker.LinkerServices;
@@ -18,8 +20,14 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        /*GoodsDao goodsDao=new GoodsDaoImpl();
-        boolean i=goodsDao.insertGoods(new Goods(DBUtil.getUUID(),"0006","裤子",100,100,1,1,"anomlka",""));
+        GoodsDao goodsDao=new GoodsDaoImpl();
+        //Goods goods=goodsDao.findGoodsByName("1");
+        GoodsService gs=new GoodsServiceImpl();
+
+        //gs.insertGoods(new Goods(DBUtil.getUUID(),"0009","裤子",100,100,1,1,"anomlka",""));
+        goodsDao.insertGoods(new Goods(DBUtil.getUUID(),"0006","裤子",100,100,1,1,"anomlka",""));
+        //System.out.println(goods);
+       /* boolean i=goodsDao.insertGoods(new Goods(DBUtil.getUUID(),"0006","裤子",100,100,1,1,"anomlka",""));
         System.out.println(i);
         Goods goods=goodsDao.findGoodsById("0001");
         System.out.println(goods);
