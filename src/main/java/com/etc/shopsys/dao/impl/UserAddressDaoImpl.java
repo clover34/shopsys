@@ -67,12 +67,19 @@ public class UserAddressDaoImpl extends BaseDao<UserAddress> implements UserAddr
      */
     @Override
     public boolean updateAddress(UserAddress ua) {
-        String sql = "update ";
-        return false;
+        String sql = "update useraddress set contactname=?,phone=?,uaddress=? where UUID=?";
+        return super.executeUpdate(sql, ua.getContactname(), ua.getPhone(), ua.getUaddress(),
+                ua.getUUID());
     }
 
+    /**
+     * 查询：根据用户编号查询用户所以地址信息
+     * @param uid
+     * @return
+     */
     @Override
     public List<UserAddress> findAllAddress(String uid) {
-        return null;
+        String sql = "select * from useraddress where uid=?";
+        return super.executeQuery(sql, uid);
     }
 }
