@@ -1,0 +1,109 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul {
+	list-style: outside none none;
+}
+
+.slider {
+	float: left;
+	/* padding-right: 0; */
+}
+
+.slider,
+.slider-panel img,
+.slider-extra {
+	width: 100%;
+	height: 460px;
+}
+
+.slider {
+	text-align: center;
+	/* margin: 30px auto; */
+	position: relative;
+}
+
+.slider-panel,
+.slider-nav,
+.slider-pre,
+.slider-next {
+	position: absolute;
+	z-index: 8;
+}
+
+.slider-panel {
+	position: absolute;
+}
+
+.slider-panel img {
+	border: none;
+}
+
+.slider-extra {
+	position: relative;
+}
+
+.slider-nav {
+	margin-left: -51px;
+	position: absolute;
+	left: 93%;
+	bottom: 8px;
+}
+.slider-nav li {
+	background: #3e3e3e;
+	border-radius: 50%;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 2px;
+	overflow: hidden;
+	text-align: center;
+	display: inline-block;
+	height: 10px;
+	line-height: 10px;
+	width: 10px;
+}
+
+.slider-nav .slider-item-selected {
+	/* width: 10px;
+	height: 10px; */
+	background: white;
+}
+
+.slider-page a {
+	background: rgba(0, 0, 0, 0.2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000, endColorstr=#33000000);
+	color: #fff;
+	text-align: center;
+	display: block;
+	font-family: "simsun";
+	font-size: 30px;
+	width: 41px;
+	height: 69px;
+	line-height: 69px;
+	margin-top: -31px;
+	position: absolute;
+	top: 50%;
+}
+
+.slider-page a:HOVER {
+	background: rgba(0, 0, 0, 0.8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000);
+}
+
+.slider-next {
+	left: 100.1%;
+	margin-left: -28px;
+}
+.slider-pre{
+	left: 21.4%;
+}

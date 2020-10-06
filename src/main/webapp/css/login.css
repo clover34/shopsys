@@ -1,0 +1,128 @@
+*{
+	margin: 0;
+	padding: 0;
+	/* 删除超链接下划线 */
+	text-decoration: none;
+	/* 去掉列表样式 */
+	list-style: none;
+	/* 点击输入框不显示边框 */
+	outline: none;
+}
+/* 设置头部div */
+.login_head{
+	height: 98px;
+}
+
+/* 设置主体信息 */
+.login_body{
+	height: 588px;
+	background-image: url(../img/128.png);
+	background-repeat: no-repeat;
+	background-position: -475px 0px;
+}
+
+/* 设置小米商城登陆界面div */
+.login_body_techweb{
+	/* width: 410px; */
+	height: 556px;
+	background-color: white;
+	margin-top: 32px;
+}
+/* 登录界面左右两边样式设置 */
+.login_body_techweb_left,
+.login_body_techweb_right{
+	font-size: 24px;
+	color: #666;
+	cursor: pointer;
+}
+/* 登录界面左边设置 */
+.login_body_techweb_left{
+	color: #F56600;
+	padding: 27px 0px 24px 65px;
+}
+/* 中间竖线设置 */
+.login_body_techweb_middle{
+	font-size: 30px;
+	color: #cccccc;
+	line-height: 80px;
+	padding-left: 30px;
+}
+/* 登录界面右边设置 */
+.login_body_techweb_right{
+	padding: 27px 0px 24px 0px;
+}
+/* 登录界面左右两边鼠标移入移出效果 */
+.login_body_techweb_left:hover,
+.login_body_techweb_right:hover{
+	color: #F56600;
+}
+/* 用户名密码div设置 */
+.account_login_div_username,
+.account_login_div_password,
+.account_login_div_button{
+	margin-bottom: 15px;
+	margin-left: 21px;
+}
+
+/* 用户名密码框设置 */
+.account_login_div_username input,
+.account_login_div_password input{
+	width: 316px;
+	height: 48px;
+	padding-left: 14px;
+	border:1px solid rgb(195, 195, 195);
+}
+/* 登录按钮样式设置 */
+.account_login_div_button button{
+	width: 316px;
+	height: 50px;
+	background-color: #ff6700;
+	border: none;
+	color: white;
+}
+/* 手机短信登录/注册div样式设置 */
+.account_login_div_phoneLogin{
+	margin-bottom: 15px;
+}
+/* 手机短信登录样式设置 */
+#phone_login{
+	color: #FF6700;
+}
+
+#phone_login:hover,
+.account_login_div_register a:hover{
+	text-decoration: none;
+}
+
+/* 立即注册忘记密码样式设置 */
+.account_login_div_register a{
+	color: #999;
+	transition: .5s;
+}
+.account_login_div_register a:hover{
+	color: #FF6700;
+}
+.login_botton_top{
+	height: 30px;
+	margin-top: 100px;
+	padding-left: 580px;
+}
+/* 登录按钮 */
+.login_botton li{
+	color: #999999;
+	float: left;
+	padding-right: 15px;
+}
+.login_botton_top_botton span{
+	color: #999999;
+}
+
+.account_login{
+	/* display: none; */
+}
+/* 二维码div */
+.qrcode{
+	padding-top: 100px;
+	margin-bottom: 25px;
+	display: none;
+}
