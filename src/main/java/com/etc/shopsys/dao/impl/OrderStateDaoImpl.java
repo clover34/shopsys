@@ -20,7 +20,7 @@ public class OrderStateDaoImpl extends BaseDao<OrderState> implements OrderState
         return super.executeUpdate(sql,osid);
     }
 
-    public boolean updataOrderStateByOsid(int osid, int state) {
+    public boolean updataOrderStateByOsid(int osid, String state) {
         String sql = "update orderstate set state = ? where osid = ?";
         return super.executeUpdate(sql,state,osid);
     }
@@ -35,16 +35,41 @@ public class OrderStateDaoImpl extends BaseDao<OrderState> implements OrderState
         return new Page<OrderState>(currentPage,sizePage,totalCount,orderStates);
     }
 
+    /**、
+     * 查：查询所有状态记录
+     * @return
+     */
     public List<OrderState> findAllOrderState() {
         String sql = "select * from orderstate";
         return super.executeQuery(sql);
+    }
+
+    /**
+     * 查：根据订单状态查询记录
+     * @param state
+     * @return
+     */
+    @Override
+    public OrderState findOSByState(String state) {
+        String sql = "select * from orderstate where state=?";
+        return super.executeQueryOne(sql,state);
+    }
+
+    /**
+     * 查询：查询总记录数
+     * @return
+     */
+    @Override
+    public int findCount() {
+        String sql = "select count(*) from orderstate";
+        return super.findCount(sql);
     }
 
     protected OrderState getEntty(ResultSet rs)  {
         OrderState orderState = new OrderState();
         try {
             orderState.setOsid(rs.getInt("osid"));
-            orderState.setState(rs.getInt("state"));
+            orderState.setState(rs.getString("state"));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

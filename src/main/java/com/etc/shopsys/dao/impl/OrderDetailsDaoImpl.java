@@ -65,6 +65,12 @@ public class OrderDetailsDaoImpl extends BaseDao<OrderDetails> implements OrderD
         return super.executeQuery(sql);
     }
 
+    @Override
+    public int findAll() {
+        String sql = "select count(*) from orderdetails";
+        return super.findCount(sql);
+    }
+
 
     protected OrderDetails getEntty(ResultSet rs){
         OrderDetails orderDetails = new OrderDetails();

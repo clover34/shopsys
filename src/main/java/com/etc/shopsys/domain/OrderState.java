@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class OrderState implements Serializable {
     private int osid; // 状态编号
-    private int state; // 订单状态
+    private String state; // 订单状态
 
     public OrderState() {
     }
 
-    public OrderState(int osid, int state) {
+    public OrderState(int osid, String state) {
         this.osid = osid;
         this.state = state;
     }
@@ -30,11 +30,11 @@ public class OrderState implements Serializable {
         this.osid = osid;
     }
 
-    public int getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(String state) {
         this.state = state;
     }
 }

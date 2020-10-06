@@ -37,4 +37,7 @@ public interface OrderDetailsDao {
     // 查: 查询全部订单
     List<OrderDetails> findAllOrderDetails();
 
+    // 查:查询总记录条数
+    int findAll();
+
 }
