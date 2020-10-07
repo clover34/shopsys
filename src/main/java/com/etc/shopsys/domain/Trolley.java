@@ -1,9 +1,9 @@
 package com.etc.shopsys.domain;
 
 public class Trolley {
-    private String uid;
-    private String gid;
-    private int trcount;
+    private String uid;//用户编号
+    private String gid;//商品编号
+    private int trcount;//购买数量
 
     public Trolley() {
     }

@@ -14,18 +14,18 @@ public class TrolleyServiceImpl implements TrolleyService {
     }
 
     @Override
-    public boolean insertTrolley(Trolley trolley) {
-        return this.dao.insertTrolley(trolley);
+    public String insertTrolley(Trolley trolley) {
+        return this.dao.insertTrolley(trolley)?"添加到购物车成功":"添加到购物车失败";
     }
 
     @Override
-    public boolean deleteTrolleyById(String gid) {
-        return this.dao.deleteTrolleyById(gid);
+    public String deleteTrolleyById(String gid) {
+        return this.dao.deleteTrolleyById(gid)?"购物车信息删除成功":"购物车信息删除失败";
     }
 
     @Override
-    public boolean updateTrolleyById(String uid, String gid, int trcount) {
-        return this.dao.updateTrolleyById(uid,gid,trcount);
+    public String updateTrolleyById(String uid, String gid, int trcount) {
+        return this.dao.updateTrolleyById(uid,gid,trcount)?"购物车信息修改成功":"购物车信息修改失败";
     }
 
     @Override

@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/xm.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/trolley.css" />
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/zzsc.css"/>
     <script src="<%=request.getContextPath()%>/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
     <script src="<%=request.getContextPath()%>/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
@@ -45,7 +47,14 @@
             color: red;
             border: 1px solid #ccc;
         }
-
+        table{
+            margin:auto;
+            text-align:center;
+            border-collapse:collapse;
+        }
+        table,th,td{
+            border:1px solid black;
+        }
     </style>
     <script>
         $(function () {
@@ -177,7 +186,7 @@
                     <input type="checkbox" class="chec" />
                 </div>
                 <div class="col-md-3">
-                    <%--<img src="img/12.png" />--%>
+                    <img src="img/12.png" />
                 </div>
                 <div class="col-md-1">大白</div>
                 <div class="col-md-1">50</div>
@@ -196,7 +205,7 @@
                     <input type="checkbox" class="chec" />
                 </div>
                 <div class="col-md-3">
-                    <%--<img src="img/12.png" />--%>
+                    <img src="img/12.png" />
                 </div>
                 <div class="col-md-1">大白</div>
                 <div class="col-md-1">60</div>
@@ -213,7 +222,7 @@
                     <input type="checkbox" class="chec" />
                 </div>
                 <div class="col-md-3">
-                    <%--<img src="img/12.png" />--%>
+                    <img src="img/12.png" />
                 </div>
                 <div class="col-md-1">大白</div>
                 <div class="col-md-1">70</div>
@@ -233,6 +242,7 @@
                     购物车为空，请前往商城够买所需物品
                 </div>
             </div>
+
             <div class="cartFoot">
                 <div class="row">
                     <div class="col-lg-1"><a href="javascript:">批量删除</a></div>
@@ -240,7 +250,6 @@
                     <div class="col-lg-2">总价格</div>
                     <div class="col-lg-2">
                         <span id="span1">0</span>元
-                        <button type="submit" value="付款">付款</button>
                     </div>
                 </div>
             </div>

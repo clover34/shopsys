@@ -19,7 +19,7 @@ public class GoodsEvaluateServiceImpl implements GoodsEvaluateService {
      */
     @Override
     public String insertGoodsEvaluate(GoodsEvaluate goodsEvaluate) {
-        return this.goodsEvaluateDao.insertGoodsEvaluate(goodsEvaluate)?"":"";
+        return this.goodsEvaluateDao.insertGoodsEvaluate(goodsEvaluate)?"评价信息添加成功":"评价信息添加失败";
     }
     /*
      * 删:根据编号删除评价信息
@@ -28,7 +28,7 @@ public class GoodsEvaluateServiceImpl implements GoodsEvaluateService {
      */
     @Override
     public String deleteGoodsEvaluateById(String odid, String gid) {
-        return this.goodsEvaluateDao.deleteGoodsEvaluateById(odid,gid)?"":"";
+        return this.goodsEvaluateDao.deleteGoodsEvaluateById(odid,gid)?"评价信息删除成功":"评价信息删除失败";
     }
     /*
      * 改:根据编号修改评价信息
@@ -37,7 +37,7 @@ public class GoodsEvaluateServiceImpl implements GoodsEvaluateService {
      */
     @Override
     public String updateGoodsEvaluateById(String odid, String gid, String evaluate) {
-        return this.goodsEvaluateDao.updateGoodsEvaluateById(odid,gid,evaluate)?"":"";
+        return this.goodsEvaluateDao.updateGoodsEvaluateById(odid,gid,evaluate)?"评价信息修改成功":"评价信息修改失败";
     }
     /*
      * 查:根据商品编号查询商品类型
