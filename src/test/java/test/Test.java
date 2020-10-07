@@ -3,13 +3,12 @@ package test;
 import com.etc.shopsys.dao.OrderDetailsDao;
 import com.etc.shopsys.dao.OrderStateDao;
 import com.etc.shopsys.dao.OrdersDao;
+import com.etc.shopsys.dao.TrolleyDao;
 import com.etc.shopsys.dao.impl.OrderDetailsDaoImpl;
 import com.etc.shopsys.dao.impl.OrderStateDaoImpl;
 import com.etc.shopsys.dao.impl.OrdersDaoImpl;
-import com.etc.shopsys.domain.OrderDetails;
-import com.etc.shopsys.domain.OrderState;
-import com.etc.shopsys.domain.Orders;
-import com.etc.shopsys.domain.Page;
+import com.etc.shopsys.dao.impl.TrolleyDaoImpl;
+import com.etc.shopsys.domain.*;
 import com.etc.shopsys.utils.CounterUtil;
 import com.etc.shopsys.utils.DBUtil;
 import com.etc.shopsys.utils.DateUtil;
@@ -19,9 +18,19 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        OrderStateDao orderStateDao = new OrderStateDaoImpl();
+         /*TrolleyDao trolleyDao=new TrolleyDaoImpl();
+       boolean i=trolleyDao.insertTrolley(new Trolley("1","1",2));
+        boolean i=trolleyDao.updateTrolleyById("1","1","3");
+        Trolley trolley=trolleyDao.findTrolleyById("1");
+        Page<Trolley> page=trolleyDao.findAllTrolley(1,1);
+        List<Trolley> list=page.getData();
+        for (Trolley trolley : list) {
+            System.out.println(trolley);
+        }*/
 
-        /*boolean osid = orderStateDao.insertOsid(new OrderState(234, 5));
+         /*OrderStateDao orderStateDao = new OrderStateDaoImpl();
+
+       boolean osid = orderStateDao.insertOsid(new OrderState(234, 5));
         System.out.println(osid);*/
 
         /*boolean osid = orderStateDao.deleteOrderStateByOsid(234);
@@ -38,8 +47,8 @@ public class Test {
         /*boolean b = orderStateDao.updataOrderStateByOsid(123, 3);
         System.out.println(b);*/
 
-        OrdersDao ordersDao = new OrdersDaoImpl();
-        /*boolean b = ordersDao.insertUidByOid(new Orders(DBUtil.getUUID(), CounterUtil.getCounterStr("oid",1), CounterUtil.getCounterStr("uid",1), 2.50, new Date(), 1));
+        /*OrdersDao ordersDao = new OrdersDaoImpl();
+        boolean b = ordersDao.insertUidByOid(new Orders(DBUtil.getUUID(), CounterUtil.getCounterStr("oid",1), CounterUtil.getCounterStr("uid",1), 2.50, new Date(), 1));
         System.out.println(b);
         System.out.println(new Date());*/
 
@@ -78,9 +87,9 @@ public class Test {
         /*boolean b = ordersDao.updataUidByOid("oid0002", "u001");
         System.out.println(b);*/
 
-        OrderDetailsDao dao = new OrderDetailsDaoImpl();
+       /* OrderDetailsDao dao = new OrderDetailsDaoImpl();
 
-        /*boolean u = dao.deleteGidByOid("u0001");
+        boolean u = dao.deleteGidByOid("u0001");
         System.out.println(u);
 
         List<OrderDetails> allOrderDetails = dao.findAllOrderDetails();
