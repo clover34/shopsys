@@ -19,6 +19,9 @@ public interface OrderStateService {
     // 查： 根据状态编号查询订单状态
     Page<OrderState> findOrderStateByOsid(int osid, int currentPage, int sizePage);
 
+    // 查： 根据状态状态查询订单状态
+    Page<OrderState> findOrderStateByState(String state,int currentPage, int sizePage);
+
     // 查询所有订单状态
     List<OrderState> findAllOrderState();
 }

@@ -65,6 +65,12 @@ public class OrderStateServiceImpl implements OrderStateService {
         return orderStateByOsid;
     }
 
+    @Override
+    public Page<OrderState> findOrderStateByState(String state, int currentPage, int sizePage) {
+        Page<OrderState> orderStateByState = orderStateDao.findOrderStateByState(state, currentPage, sizePage);
+        return orderStateByState;
+    }
+
     /**
      * 查询所有订单状态
      * @return

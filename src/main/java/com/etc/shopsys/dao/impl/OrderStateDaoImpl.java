@@ -35,6 +35,16 @@ public class OrderStateDaoImpl extends BaseDao<OrderState> implements OrderState
         return new Page<OrderState>(currentPage,sizePage,totalCount,orderStates);
     }
 
+    @Override
+    public Page<OrderState> findOrderStateByState(String state, int currentPage, int sizePage) {
+        String sql = "select * from orderstate where state = ? limit ?,?";
+        String countSql = "select count(state) from orderstate where state = ?";
+        int start = (currentPage -1) * sizePage; // 分页起始位置
+        List<OrderState> orderStates = super.executeQuery(sql,state,start,sizePage);// 分页查询到的数据
+        int totalCount = findCount(countSql,state);// 查询总记录
+        return new Page<OrderState>(currentPage,sizePage,totalCount,orderStates);
+    }
+
     /**、
      * 查：查询所有状态记录
      * @return
