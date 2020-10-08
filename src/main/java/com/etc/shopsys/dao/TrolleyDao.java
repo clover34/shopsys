@@ -1,7 +1,8 @@
 package com.etc.shopsys.dao;
 
-import com.etc.shopsys.domain.Page;
 import com.etc.shopsys.domain.Trolley;
+
+import java.util.List;
 
 public interface TrolleyDao {
     //增：新增商品
@@ -13,5 +14,5 @@ public interface TrolleyDao {
     //查:根据商品编号查询商品数量
     Trolley findTrolleyById(String gid);
     // 查：查询所有商品
-    Page<Trolley> findAllTrolley(int currentPage, int sizePage);
+    List<Trolley> findAllTrolley();
 }

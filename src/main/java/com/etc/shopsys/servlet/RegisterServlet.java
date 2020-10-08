@@ -54,6 +54,7 @@ public class RegisterServlet extends HttpServlet {
             req.setAttribute("info",info);
         }else {
             req.getRequestDispatcher("register.jsp").forward(req,resp);
+
         }
         req.getRequestDispatcher("userLogin.jsp").forward(req,resp);
     }

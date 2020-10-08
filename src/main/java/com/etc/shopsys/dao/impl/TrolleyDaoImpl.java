@@ -56,13 +56,9 @@ public class TrolleyDaoImpl extends BaseDao<Trolley> implements TrolleyDao {
      * @return
      */
     @Override
-    public Page<Trolley> findAllTrolley(int currentPage, int sizePage) {
-        String sql = "select * from trolley limit ?,?";
-        String countSql = "select count(*) from trolley";
-        int start =  (currentPage-1) * sizePage;// 分页起始位置
-        List<Trolley> emps = super.executeQuery(sql, start, sizePage);// 分页查询到的数据
-        int totalCount = findCount(countSql);// 查询记录数
-        return new Page<Trolley>(currentPage,sizePage,totalCount,emps);
+    public List<Trolley> findAllTrolley() {
+        String sql = "select * from trolley";
+        return super.executeQuery(sql);
     }
 
     @Override

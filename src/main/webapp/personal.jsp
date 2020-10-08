@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        小米商城 - 小米10 Pro、Redmi K30 Pro、小米MIX Alpha，小米电视官方网站
+        个人中心
     </title>
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/img/titlelogo.ico" type="image/x-icon">
     <script src="<%=request.getContextPath()%>/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8">
@@ -171,9 +171,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="col-sm-6 col-xs-6 black_logo">
-                    <a href="javascript:"><img src="img/小米黑色logo.png"></a>
-                </div> -->
             </div>
         </div>
     </div>
@@ -232,8 +229,25 @@
     </div>
 </div>
 
-<div>
+<div id="div"class="row">
+    <div class="col-md-10 col-md-offset-1"><h4>首页/个人中心</h4></div>
+    <div class="col-md-10 col-md-offset-1 row div1">
+        <div class="col-md-2 div12">
+            <ul>
+                <li><strong>订单中心</strong></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=allOrder">我的订单</a></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=allOrderState">评价晒单</a></li>
+                <li><strong>我的个人中心</strong></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=allUser">消息通知</a></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=allUserAddress">收货地址</a></li>
+                <li><strong>账户管理</strong></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=findUser">个人信息</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10 div13">
 
+        </div>
+    </div>
 </div>
 
 <div class="container">

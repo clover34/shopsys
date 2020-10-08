@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>购物车</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/trolley.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/zzsc.css"/>
     <script src="<%=request.getContextPath()%>/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
@@ -145,7 +145,7 @@
     </script>
 </head>
 <body>
-<div class="container">
+<div class="container" href="<%=application.getContextPath()%>/trolley?op=findAll" method="post">
 <div class="row xm_head hidden-sm hidden-xs">
     <!-- 小米头部左边 -->
     <div class="xm_head_left col-md-9 ">
@@ -181,68 +181,30 @@
                 <div class="col-md-1">小计</div>
                 <div class="col-md-2">操作</div>
             </div>
+            <c:forEach items="${goodsPage}" var="g">
             <div class="row cartBody text-center">
                 <div class="col-md-1">
                     <input type="checkbox" class="chec" />
                 </div>
                 <div class="col-md-3">
-                    <img src="img/12.png" />
+                    ${g.gimg}
                 </div>
-                <div class="col-md-1">大白</div>
-                <div class="col-md-1">50</div>
-                <div class="col-md-3">
-
-                    <button type="button" class="sub">-</button>
-                    <input type="text" value="1" readonly="readonly" />
-                    <button type="button" class="add">+</button>
-
-                </div>
-                <div class="col-md-1 price">50</div>
-                <div class="col-md-2"><a href="javascript:">删除</a></div>
-            </div>
-            <div class="row cartBody text-center">
-                <div class="col-md-1">
-                    <input type="checkbox" class="chec" />
-                </div>
-                <div class="col-md-3">
-                    <img src="img/12.png" />
-                </div>
-                <div class="col-md-1">大白</div>
-                <div class="col-md-1">60</div>
+                <div class="col-md-1">${g.gname}</div>
+                <div class="col-md-1">${g.gprice}</div>
                 <div class="col-md-3">
                     <button type="button" class="sub">-</button>
                     <input type="text" value="1" readonly="readonly" />
                     <button type="button" class="add">+</button>
                 </div>
-                <div class="col-md-1 price">60</div>
-                <div class="col-md-2"><a href="javascript:">删除</a></div>
+                <div class="col-md-1 price"></div>
+                <div class="col-md-2"><a href="<%=application.getContextPath()%>/trolley?op=remove&gid=${g.gid}">删除</a></div>
             </div>
-            <div class="row cartBody text-center">
-                <div class="col-md-1">
-                    <input type="checkbox" class="chec" />
-                </div>
-                <div class="col-md-3">
-                    <img src="img/12.png" />
-                </div>
-                <div class="col-md-1">大白</div>
-                <div class="col-md-1">70</div>
-                <div class="col-md-3">
-
-                    <button type="button" class="sub">-</button>
-                    <input type="text" value="1" readonly="readonly" />
-                    <button type="button" class="add">+</button>
-
-                </div>
-                <div class="col-md-1 price">70</div>
-                <div class="col-md-2"><a href="javascript:">删除</a></div>
-
-            </div>
+            </c:forEach>
             <div class="row hidden"id="ep">
                 <div class="col-md-12 text-center" >
                     购物车为空，请前往商城够买所需物品
                 </div>
             </div>
-
             <div class="cartFoot">
                 <div class="row">
                     <div class="col-lg-1"><a href="javascript:">批量删除</a></div>
@@ -250,6 +212,7 @@
                     <div class="col-lg-2">总价格</div>
                     <div class="col-lg-2">
                         <span id="span1">0</span>元
+                        <button type="submit" value="付款">付款</button>
                     </div>
                 </div>
             </div>
