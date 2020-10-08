@@ -74,8 +74,8 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public Orders findOrdersInfoByUid(String uid) {
-        Orders uid1 = ordersDao.findOrdersInfoByUid(uid);
+    public Page<Orders> findOrdersInfoByUid(String uid, int currentPage, int sizePage) {
+        Page<Orders> uid1 = ordersDao.findOrdersInfoByUid(uid, currentPage, sizePage);
         return uid1;
     }
 

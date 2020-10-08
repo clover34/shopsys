@@ -79,10 +79,15 @@ public class OrdersDaoImpl extends BaseDao<Orders>implements OrdersDao {
         String sql = "select * from orders where oid = ?";
         return super.executeQueryOne(sql,oid);
     }
-    //查:根据用户编号查询订单信息
-    public Orders findOrdersInfoByUid(String uid) {
+    //查:根据用户编号查询订单信息(查询单个)
+    public Page<Orders> findOrdersInfoByUid(String uid,int currentPage,int sizePage) {
         String sql = "select * from orders where uid = ?";
-        return super.executeQueryOne(sql,uid);
+        String countSql = "select count(uid) from orders where uid = ?";
+        int start = (currentPage-1) *sizePage;// 分页起始位置
+        List<Orders> ordersList = super.executeQuery(sql,uid,start,sizePage);// 分页查询到的数据
+        int totalCount = findCount(countSql,uid);// 查询总记录
+        return new Page<Orders>(currentPage,sizePage,totalCount,ordersList);
+
     }
     //查: 根据底单创建时间插查询订单信息
     public Orders findOrdersInfoByCreateDate(Date createdate) {

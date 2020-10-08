@@ -47,7 +47,7 @@ public interface OrdersDao {
     Orders findOrdersInfoByOid(String oid);
 
     //查:根据用户编号查询订单信息
-    Orders findOrdersInfoByUid(String uid);
+    Page<Orders> findOrdersInfoByUid(String uid,int currentPage,int sizePage);
 
     //查: 根据订单创建时间插查询订单信息
     Orders findOrdersInfoByCreateDate(Date createdate);
