@@ -65,26 +65,26 @@
 </head>
 <body>
 
-<form class="form-horizontal">
+<form class="form-horizontal" action="<%=request.getContextPath()%>/address?op=updateSuccess" method="post">
     <div class="form-group">
         <label for="uname" class="col-sm-2 control-label">联系人姓名</label>
         <div class="col-sm-4">
-            <input type="hidden" class="form-control" id="uuid" value="${addressByUUID.UUID}">
-            <input type="text" class="form-control" id="uname" value="${addressByUUID.contactname}">
+            <input type="hidden" class="form-control" id="uuid" name="UUID" value="${addressByUUID.UUID}">
+            <input type="text" class="form-control" id="uname" name="contactname" value="${addressByUUID.contactname}">
             <div id="mp" style="display: none; color:red"></div>
         </div>
     </div>
     <div class="form-group">
         <label for="tel" class="col-sm-2 control-label">联系电话</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="tel" value="${addressByUUID.phone}">
+            <input type="text" class="form-control" id="tel" name="phone" value="${addressByUUID.phone}">
             <div id="mt" style="display: none; color:red"></div>
         </div>
     </div>
     <div class="form-group">
         <label for="address" class="col-sm-2 control-label">收件地址</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="address" value="${addressByUUID.uaddress}">
+            <input type="text" class="form-control" id="address" name="uaddress" value="${addressByUUID.uaddress}">
             <div id="ma" style="display: none; color:red"></div>
         </div>
     </div>

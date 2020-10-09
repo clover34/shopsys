@@ -39,10 +39,10 @@
         </tr>
         <c:forEach items="${allAddress}" var="addr">
             <tr>
-                <td>${addr.username}</td>
+                <td>${addr.contactname}</td>
                 <td>${addr.uaddress}</td>
                 <td>
-                    <a href="<%=application.getContextPath()%>/address?op=update&&UUID=${addr.UUID}"><button>修改</button></a>
+                    <a href="<%=application.getContextPath()%>/address?op=update&UUID=${addr.UUID}"><button>修改</button></a>
                     <a class="delClass" href="<%=application.getContextPath()%>/address?op=delete&UUID=${addr.UUID}"><button>删除</button></a>
                 </td>
 

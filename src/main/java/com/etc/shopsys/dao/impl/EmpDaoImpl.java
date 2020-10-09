@@ -73,7 +73,7 @@ public class EmpDaoImpl extends BaseDao<Emp> implements EmpDao {
     @Override
     public boolean updateEmpById(Emp emp) {
         String sql = "update emp set empname=?,empaccount=?,password=?,dimission=?,etid=? where empid=?";
-        return super.executeUpdate(emp.getEmpname(),emp.getEmpaccount(),emp.getPassword(),emp.getDimission(),
+        return super.executeUpdate(sql,emp.getEmpname(),emp.getEmpaccount(),emp.getPassword(),emp.getDimission(),
                 emp.getEtid().getEtid(),emp.getEmpid());
     }
 

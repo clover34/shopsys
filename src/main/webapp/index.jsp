@@ -291,10 +291,10 @@
 <div class="fixed_div">
     <ul>
         <li><a class="fixed_div_a" href="javascript:"><img class="fixed_div_img" src="img/121.png" ></a>手机APP</li>
-        <li><a class="fixed_div_a" href="javascript:"><img class="fixed_div_img" src="img/122.png" ></a>个人中心</li>
+        <li><a class="fixed_div_a" href="personal.jsp"><img class="fixed_div_img" src="img/122.png" ></a>个人中心</li>
         <li><a class="fixed_div_a" href="javascript:"><img class="fixed_div_img" src="img/123.png" ></a>售后</li>
         <li><a class="fixed_div_a" href="javascript:"><img class="fixed_div_img" src="img/124.png" ></a>人工客服</li>
-        <li><a class="fixed_div_a" href="javascript:"><img class="fixed_div_img" src="img/125.png" ></a>购物车</li>
+        <li><a class="fixed_div_a" href="trolley.jsp"><img class="fixed_div_img" src="img/125.png" ></a>购物车</li>
     </ul>
 </div>
 
@@ -333,11 +333,11 @@
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3 colminwidth">
                         <ul>
-                            <li><a href="javascript:">登录</a><span class="xm_nav_span">|</span></li>
-                            <li><a href="javascript:">注册</a><span class="xm_nav_span">|</span></li>
+                            <li><a href="javascript:">${user.username}</a><span class="xm_nav_span">|</span></li>
+<%--                            <li><a href="javascript:">注册</a><span class="xm_nav_span">|</span></li>--%>
                             <li><a href="javascript:">消息通知</a></li>
                             <li class="xm_nav_right_li_cart">
-                                <a href="javascript:">
+                                <a href="trolley.jsp">
                                     <span class="glyphicon glyphicon-shopping-cart cart"></span>购物车(0)
                                 </a>
                                 <ul>
@@ -791,7 +791,7 @@
             <div class="col-md-10 phone_right"  style="padding: 0;">
                 <ul>
                     <li class="phone_right_li">
-                        <a href="javascript:" class="countdown_goods_a">
+                        <a href="<%=application.getContextPath()%>/good?op=findGByGid&gid=goods0051" class="countdown_goods_a">
                             <img src="img/87.png" class="countdown_goods_img">
                             <h3 class="phone_right_h3">小米10 至尊版</h3>
                             <p class="phone_right_p1">120X 变焦/120W秒充/120Hz屏幕</p>

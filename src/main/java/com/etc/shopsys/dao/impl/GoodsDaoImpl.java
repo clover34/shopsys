@@ -2,8 +2,12 @@ package com.etc.shopsys.dao.impl;
 
 import com.etc.shopsys.dao.BaseDao;
 import com.etc.shopsys.dao.GoodsDao;
+import com.etc.shopsys.dao.GoodsTypleDao;
 import com.etc.shopsys.domain.Goods;
 import com.etc.shopsys.domain.Page;
+import com.etc.shopsys.service.GoodsTypeService;
+import com.etc.shopsys.utils.CounterUtil;
+import com.etc.shopsys.utils.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +23,7 @@ public class GoodsDaoImpl extends BaseDao<Goods> implements GoodsDao {
     public boolean insertGoods(Goods goods) {
         String sql="insert into goods(UUID,gid,gname,gcount,gprice,gtid,isdelete,gdepict,gimg) values(?,?,?,?,?,?,?,?,?)";
         return super.executeUpdate(sql,goods.getUUID(), goods.getGid()
-                , goods.getGname(),goods.getGcount(),goods.getGprice(),goods.getGtid()
+                , goods.getGname(),goods.getGcount(),goods.getGprice(),goods.getGtid().getGtid()
                 ,goods.getIsdelete(),goods.getGdepict(), goods.getGimg());
     }
     /*
@@ -41,7 +45,7 @@ public class GoodsDaoImpl extends BaseDao<Goods> implements GoodsDao {
     public boolean updateGoodsById(Goods goods) {
         String sql="update goods set  gname=?,gcount=?,gprice=?,gtid=?,isdelete=?,gdepict=?,gimg=? where gid=? and UUID=?";
         return super.executeUpdate(sql,goods.getGname(),goods.getGcount(),goods.getGprice()
-        ,goods.getGtid(),goods.getIsdelete(),goods.getGdepict(),goods.getGimg(),goods.getGid(),goods.getUUID());
+        ,goods.getGtid().getGtid(),goods.getIsdelete(),goods.getGdepict(),goods.getGimg(),goods.getGid(),goods.getUUID());
     }
     /*
      * 查:根据编号查询商品信息
@@ -139,6 +143,7 @@ public class GoodsDaoImpl extends BaseDao<Goods> implements GoodsDao {
      */
     @Override
     protected Goods getEntty(ResultSet rs) {
+        GoodsTypleDao goodsTypleDao = new GoodsTypleDaoImpl();
         Goods goods=new Goods();
         try {
             goods.setUUID(rs.getString("UUID"));
@@ -146,7 +151,7 @@ public class GoodsDaoImpl extends BaseDao<Goods> implements GoodsDao {
             goods.setGname(rs.getString("gname"));
             goods.setGcount(rs.getInt("gcount"));
             goods.setGprice(rs.getDouble("gprice"));
-            goods.setGtid(rs.getInt("gtid"));
+            goods.setGtid(goodsTypleDao.findGoodsTypeById(rs.getString("gtid")));
             goods.setIsdelete(rs.getInt("isdelete"));
             goods.setGdepict(rs.getString("gdepict"));
             goods.setGimg(rs.getString("gimg"));

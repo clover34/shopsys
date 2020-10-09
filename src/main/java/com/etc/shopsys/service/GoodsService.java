@@ -17,11 +17,11 @@ public interface GoodsService {
     //查:查询所有商品信息
     Page<Goods> findAllGoods(int currentPage, int sizePage);
     //模糊查询:根据商品名称查询商品信息
-    Page<Goods> findGoodsLikeByGname(String gname,int currentPage, int sizePage);
+    Page<Goods> findGoodsLikeByGname(String gname, int currentPage, int sizePage);
     //查:根据商品类型查询商品信息
-    Page<Goods> findGoodsById(int gtid,int currentPage, int sizePage);
+    Page<Goods> findGoodsById(int gtid, int currentPage, int sizePage);
     // 查：查询存在删除商品信息
-    Page<Goods> findGoodsIsDelete(int isdelete,int currentPage, int sizePage);
+    Page<Goods> findGoodsIsDelete(int isdelete, int currentPage, int sizePage);
     // 查：查询商品表总记录数
     int findGoodsCount();
 }

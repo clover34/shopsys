@@ -5,7 +5,6 @@ import com.etc.shopsys.dao.impl.OrderStateDaoImpl;
 import com.etc.shopsys.domain.OrderState;
 import com.etc.shopsys.domain.Page;
 import com.etc.shopsys.service.OrderStateService;
-import com.etc.shopsys.utils.CounterUtil;
 
 import java.util.List;
 
@@ -65,12 +64,6 @@ public class OrderStateServiceImpl implements OrderStateService {
         return orderStateByOsid;
     }
 
-    @Override
-    public Page<OrderState> findOrderStateByState(String state, int currentPage, int sizePage) {
-        Page<OrderState> orderStateByState = orderStateDao.findOrderStateByState(state, currentPage, sizePage);
-        return orderStateByState;
-    }
-
     /**
      * 查询所有订单状态
      * @return
@@ -79,5 +72,15 @@ public class OrderStateServiceImpl implements OrderStateService {
     public List<OrderState> findAllOrderState() {
         List<OrderState> all = orderStateDao.findAllOrderState();
         return all;
+    }
+
+    /**
+     * 查：根据订单状态编号查询订单状态
+     * @param osid
+     * @return
+     */
+    @Override
+    public OrderState findOSByosid(int osid) {
+        return orderStateDao.findOSByOsid(osid);
     }
 }

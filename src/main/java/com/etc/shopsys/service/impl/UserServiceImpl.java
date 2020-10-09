@@ -101,6 +101,17 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 查：用户登录，根据用户名和密码查询用户信息
+     * @param username
+     * @param password
+     * @return
+     */
+    @Override
+    public User findUserByNameAndPwd(String username, String password) {
+        return userDao.findUserByNameAndPwd(username, password);
+    }
+
+    /**
      * 查询：查询用户总记录数
      * @return
      */

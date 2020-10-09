@@ -41,8 +41,10 @@ public class PersonalServlet extends HttpServlet {
         String op = req.getParameter("op");
         if ("findUser".equals(op)){
             findUser(req,resp);
+        }else if("User".equals(op)){
+            user(req,resp);
         }else if ("updateUser".equals(op)){
-            updateUser(req,resp);
+                updateUser(req,resp);
         }
     }
     private void findUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,24 +52,31 @@ public class PersonalServlet extends HttpServlet {
         User user=this.userService.findUserByName(user1.getUsername());
         System.out.println(user);
         req.setAttribute("user",user);
-        req.getRequestDispatcher("personal.jsp").forward(req,resp);
+        req.getRequestDispatcher("information.jsp").forward(req,resp);
+    }
+    private void user(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user1 = (User) req.getSession().getAttribute("user");
+        User user=this.userService.findUserByName(user1.getUsername());
+        System.out.println(user);
+        req.setAttribute("user",user);
+        req.getRequestDispatcher("updateUser.jsp").forward(req,resp);
     }
     private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取请求参数
-        String uid=req.getParameter("uid");
-        String username=req.getParameter("username");
-        String password=req.getParameter("password");
-        String phone=req.getParameter("phone");
-        String email=req.getParameter("email");
-        User user = new User();
-        user.setUid(uid);
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setPhone(phone);
-        user.setEmail(email);
-        String s=this.userService.updateUserByUUID(user);
+        User user = (User) req.getSession().getAttribute("user");
+        System.out.println("未修改" + user);
+        user.setEmail(req.getParameter("email"));
+        user.setUsername(req.getParameter("username"));
+        user.setPassword(req.getParameter("password"));
+        user.setPhone(req.getParameter("phone"));
+//        User user=this.userService.findUserByName(user1.getUsername());
+        String info=this.userService.updateUserByUUID(user);
+        user = this.userService.findUserByName(user.getUsername());
+        System.out.println("修改 = " + user);
+        System.out.println("修改结果" + info);
+        req.getSession().setAttribute("user", user);
         req.setAttribute("user",user);
-        req.setAttribute("s",s);
+        req.setAttribute("s",info);
         req.getRequestDispatcher("updateUser.jsp").forward(req,resp);
     }
 }

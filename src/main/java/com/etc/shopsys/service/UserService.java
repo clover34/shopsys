@@ -20,11 +20,13 @@ public interface UserService {
     // 查：查询全部用户信息
     Page<User> findAllUser(int currentPage, int sizePage);
     // 查：根据编号查询用户信息
-    Page<User> findUserById(String uid,int currentPage, int sizePage);
+    Page<User> findUserById(String uid, int currentPage, int sizePage);
     // 查：根据姓名查询用户信息
-    Page<User> findUserByName(String username,int currentPage, int sizePage);
+    Page<User> findUserByName(String username, int currentPage, int sizePage);
     // 查：根据姓名查询用户是否存在
     User findUserByName(String username);
+    // 查：用户登录，根据用户名和密码查询用户信息
+    User findUserByNameAndPwd(String username, String password);
     // 查：查询总记录数
     int findCount();
 }

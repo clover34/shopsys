@@ -120,14 +120,14 @@
                         用户编号
                         <span class="glyphicon glyphicon-envelope"></span>
                     </span>
-                <input type="text "readonly="readonly"name="uid"id="uid"placeholder="${user.uid}"class="form-control"aria-describedby="basic-addon1">
+                <input type="text "readonly="readonly"name="uid"id="uid" value="${user.uid}"class="form-control"aria-describedby="basic-addon1">
             </div>
             <%--用户名--%>
             <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">用户名
                         <span class="glyphicon glyphicon-user"></span>
                     </span>
-                <input type="text"name="username" id="username"placeholder="${user.username}"class="form-control"aria-describedby="basic-addon1">
+                <input type="text"name="username" id="username"value="${user.username}"class="form-control"aria-describedby="basic-addon1">
                 <span id="p2"style="color:red;"></span>
             </div>
             <%--密码--%>
@@ -135,7 +135,7 @@
                     <span class="input-group-addon" id="basic-addon2">密码
                         <span class="glyphicon glyphicon-lock"></span>
                     </span>
-                <input type="password"name="password"id="password"placeholder="${user.password}" class="form-control"aria-describedby="basic-addon1">
+                <input type="password"name="password"id="password"value="${user.password}" class="form-control"aria-describedby="basic-addon1">
                 <span id="p1"style="color:red;"></span>
             </div>
             <%--手机号--%>
@@ -143,7 +143,7 @@
                     <span class="input-group-addon" id="basic-addon4">手机号
                         <span class="glyphicon glyphicon-phone"></span>
                     </span>
-                <input type="text"name="phone"id="phone"placeholder="${user.phone}"class="form-control"aria-describedby="basic-addon1">
+                <input type="text"name="phone"id="phone"value="${user.phone}"class="form-control"aria-describedby="basic-addon1">
                 <span id="p4"style="color:red;"></span>
             </div>
             <%--邮箱--%>
@@ -151,7 +151,7 @@
                     <span class="input-group-addon" id="basic-addon5">邮箱地址
                         <span class="glyphicon glyphicon-envelope"></span>
                     </span>
-                <input type="email"name="email"id="email"placeholder="${user.email}"class="form-control"aria-describedby="basic-addon1">
+                <input type="email"name="email"id="email"value="${user.email}"class="form-control"aria-describedby="basic-addon1">
                 <span id="p5"style="color:red;"></span>
             </div>
             <button type="submit"id="btu"  value="修改">修改</button>

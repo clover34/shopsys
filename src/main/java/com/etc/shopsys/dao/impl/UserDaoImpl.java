@@ -2,7 +2,6 @@ package com.etc.shopsys.dao.impl;
 
 import com.etc.shopsys.dao.BaseDao;
 import com.etc.shopsys.dao.UserDao;
-import com.etc.shopsys.domain.Emp;
 import com.etc.shopsys.domain.Page;
 import com.etc.shopsys.domain.User;
 
@@ -134,6 +133,29 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     public User findUserByName(String username) {
         String sql = "select * from user where username=?";
         return super.executeQueryOne(sql, username);
+    }
+
+    /**
+     * 查询：根据编号查询用户信息
+     * @param uid
+     * @return
+     */
+    @Override
+    public User findUserById(String uid) {
+        String sql = "select * from user where uid=?";
+        return super.executeQueryOne(sql, uid);
+    }
+
+    /**
+     * 查：用户登录，根据用户名和密码查询用户信息
+     * @param username
+     * @param password
+     * @return
+     */
+    @Override
+    public User findUserByNameAndPwd(String username, String password) {
+        String sql = "select * from user where username=? and password=?";
+        return super.executeQueryOne(sql, username, password);
     }
 
     /**

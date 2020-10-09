@@ -39,6 +39,9 @@ public interface OrdersService {
     Orders findOrdersInfoByOid(String oid);
 
     //查:根据用户编号查询订单信息
+    Orders findOrdersInfoByUid(String uid);
+
+    //查:根据用户编号查询订单信息
     Page<Orders> findOrdersInfoByUid(String uid, int currentPage, int sizePage);
 
     //查: 根据订单创建时间插查询订单信息
@@ -49,4 +52,7 @@ public interface OrdersService {
 
     //查: 根据状态编号查询订单信息
     Page<Orders> findOrdersInfoByOsid(int osid, int currentPage, int sizePage);
+
+    //模糊查询：查询所有订单记录
+    Page<Orders> findAllOrder(int currentPage, int sizePage);
 }

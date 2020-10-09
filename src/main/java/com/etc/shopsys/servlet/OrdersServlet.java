@@ -1,12 +1,9 @@
 package com.etc.shopsys.servlet;
 
-import com.etc.shopsys.domain.OrderDetails;
 import com.etc.shopsys.domain.Orders;
 import com.etc.shopsys.domain.Page;
 import com.etc.shopsys.domain.User;
-import com.etc.shopsys.service.OrderDetailsService;
 import com.etc.shopsys.service.OrdersService;
-import com.etc.shopsys.service.impl.OrderDetailsServiceImpl;
 import com.etc.shopsys.service.impl.OrdersServiceImpl;
 
 import javax.servlet.ServletException;
@@ -30,8 +27,6 @@ public class OrdersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");
-        resp.setCharacterEncoding("utf-8");
         String op = req.getParameter("op");
         if("allOrders".equals(op)){
             allOrders(req,resp);

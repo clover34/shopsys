@@ -8,15 +8,15 @@ public class Goods implements Serializable {
     private String gname;//商品名称
     private int gcount;//商品库存
     private double gprice;//商品价格
-    private int gtid;//商品类型
-    private int isdelete;//商品是否删除
+    private GoodsTyple gtid;//商品类型
+    private int isdelete;//商品是否删除 0 删除，1 未删除
     private String gdepict;//商品描述
     private String gimg;//图片
 
     public Goods() {
     }
 
-    public Goods(String UUID, String gid, String gname, int gcount, double gprice, int gtid, int isdelete, String gdepict, String gimg) {
+    public Goods(String UUID, String gid, String gname, int gcount, double gprice, GoodsTyple gtid, int isdelete, String gdepict, String gimg) {
         this.UUID = UUID;
         this.gid = gid;
         this.gname = gname;
@@ -83,11 +83,11 @@ public class Goods implements Serializable {
         this.gprice = gprice;
     }
 
-    public int getGtid() {
+    public GoodsTyple getGtid() {
         return gtid;
     }
 
-    public void setGtid(int gtid) {
+    public void setGtid(GoodsTyple gtid) {
         this.gtid = gtid;
     }
 

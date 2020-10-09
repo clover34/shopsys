@@ -6,15 +6,15 @@ import java.util.Date;
 public class Orders implements Serializable {
     private String UUID; // uuid;
     private String oid; //订单编号
-    private String uid; // 用户编号
+    private User uid; // 用户编号
     private double total; // 金额
     private Date createdate; // 订单创建时间
-    private int osid; // 状态编号
+    private OrderState osid; // 状态编号
 
     public Orders() {
     }
 
-    public Orders(String UUID, String oid, String uid, double total, Date createdate, int osid) {
+    public Orders(String UUID, String oid, User uid, double total, Date createdate, OrderState osid) {
         this.UUID = UUID;
         this.oid = oid;
         this.uid = uid;
@@ -51,11 +51,11 @@ public class Orders implements Serializable {
         this.oid = oid;
     }
 
-    public String getUid() {
+    public User getUid() {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setUid(User uid) {
         this.uid = uid;
     }
 
@@ -75,11 +75,11 @@ public class Orders implements Serializable {
         this.createdate = createdate;
     }
 
-    public int getOsid() {
+    public OrderState getOsid() {
         return osid;
     }
 
-    public void setOsid(int osid) {
+    public void setOsid(OrderState osid) {
         this.osid = osid;
     }
 }

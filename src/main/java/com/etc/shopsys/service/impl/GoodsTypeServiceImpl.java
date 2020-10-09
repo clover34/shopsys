@@ -6,7 +6,6 @@ import com.etc.shopsys.domain.GoodsTyple;
 import com.etc.shopsys.service.GoodsTypeService;
 import com.etc.shopsys.utils.CounterUtil;
 
-import java.awt.font.TextHitInfo;
 import java.util.List;
 
 public class GoodsTypeServiceImpl implements GoodsTypeService {
@@ -57,6 +56,6 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
 
     @Override
     public int findGoodsCount() {
-        return this.goodsTypleDao.findGoodsCount();
+        return this.findGoodsCount();
     }
 }

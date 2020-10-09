@@ -66,7 +66,7 @@ public class AddressServlet extends HttpServlet {
 
     }
 
-    private void updateSuccess(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void updateSuccess(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String UUID = req.getParameter("UUID");
         String contactname = req.getParameter("contactname");
         String phone = req.getParameter("phone");
@@ -74,10 +74,9 @@ public class AddressServlet extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
 
         String s = userAddressService.updateAddress(new UserAddress(UUID, user.getUid(), contactname, phone, uaddress));
+        System.out.println("地址添加信息" + s);
         req.setAttribute("s",s);
-        PrintWriter out = resp.getWriter();
-        out.write(s);
-        out.flush();
+        req.getRequestDispatcher("address.jsp").forward(req, resp);
     }
 
     private void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

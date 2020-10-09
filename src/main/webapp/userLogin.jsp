@@ -15,23 +15,40 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css"/>
     <!-- 引入小米登录页面样式表 -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css"/>
-    <!-- 引入 bootstrap 脚本 -->
-    <script src="<%=request.getContextPath()%>/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
     <!-- 引入 jQuery 脚本 -->
     <script src="<%=request.getContextPath()%>/js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 引入 bootstrap 脚本 -->
+    <script src="<%=request.getContextPath()%>/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-        $(function(){
-            $(".login_body_techweb_left").click(function(){
+        $(function () {
+            // 账号登录 扫码登录切换
+            $(".login_body_techweb_left").click(function () {
                 $(".qrcode").hide();
                 $(".account_login").show();
-                $(this).attr("style","color: #FF6700");
-                $(".login_body_techweb_right").attr("style","color: #666")
+                $(this).attr("style", "color: #FF6700");
+                $(".login_body_techweb_right").attr("style", "color: #666")
             })
-            $(".login_body_techweb_right").click(function(){
+            $(".login_body_techweb_right").click(function () {
                 $(".account_login").hide();
                 $(".qrcode").show();
-                $(this).attr("style","color: #FF6700");
-                $(".login_body_techweb_left").attr("style","color: #666")
+                $(this).attr("style", "color: #FF6700");
+                $(".login_body_techweb_left").attr("style", "color: #666")
+            })
+
+            // 表单提交时间
+            $("#verifyuser").submit(function(){
+                var isOk = true;
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var password_span = $("#password_span");
+                if(username === ""){
+                    password_span.text("用户名不能为空");
+                    return false;
+                } else if(password === "") {
+                    password_span.text("密码不能为空");
+                    return false;
+                }
+                return isOK;
             })
         });
     </script>
@@ -41,7 +58,7 @@
     <!-- 登录头部图片 -->
     <div class="row">
         <div class="col-md-12 login_head">
-            <a href="javascript:"><img src="img/127.png" ></a>
+            <a href="javascript:"><img src="img/127.png"></a>
         </div>
     </div>
 </div>
@@ -68,26 +85,31 @@
                                 扫码登录
                             </div>
                         </div>
-
                         <!-- 账号密码登录显示隐藏框 -->
                         <div class="row account_login">
+
+
                             <!-- 用户名 -->
-                            <div class="col-md-12 account_login_div_username">
-                                <input type="text" id="username" value="" placeholder="邮箱/手机号码/小米ID"/>
-                                <span style="display: inline-block;" id="username_span"></span>
-                            </div>
-                            <!-- 密码 -->
-                            <div class="col-md-12 account_login_div_password">
-                                <input type="text" id="password" value="" placeholder="密码" />
-                                <span style="display: inline-block;" id="password_span"></span>
-                            </div>
-                            <!-- 登录按钮 -->
-                            <div class="col-md-12 account_login_div_button">
-                                <button type="button" id="login_btn">登录</button>
-                            </div>
+                            <form method="post" id="verifyuser" action="<%=request.getContextPath()%>/userlogin">
+                                <div class="col-md-12 account_login_div_username">
+                                    <input type="text" id="username" name="username" placeholder="用户名"/><br>
+                                    <span style="display: inline-block;" id="username_span"></span>
+                                </div>
+                                <!-- 密码 -->
+                                <div class="col-md-12 account_login_div_password">
+                                    <input type="password" id="password" name="password" placeholder="密码"/>
+                                    <span style="display: inline-block;" id="password_span">${requestScope.info}</span>
+                                </div>
+                                <!-- 登录按钮 -->
+                                <div class="col-md-12 account_login_div_button">
+                                    <button type="submit" id="login_btn">登录</button>
+                                </div>
+                            </form>
+
+
                             <!-- 手机短信登录/注册 -->
                             <div class="col-md-12 account_login_div_phoneLogin text-center">
-                                <a href="javascript:" id="phone_login">手机短信登录/注册</a>
+                                <a href="javascript:" id="phone_login"></a>
                             </div>
                             <!-- 立即注册/忘记密码？ -->
                             <div class="col-md-12 account_login_div_register text-center">
@@ -103,7 +125,7 @@
                         <!-- 扫码登录显示隐藏块 -->
                         <div class="row qrcode">
                             <div class="col-md-12 text-center" style="margin-bottom: 15px;">
-                                <img src="img/131.png" style="width: 150px;height: 150px;" >
+                                <img src="img/131.png" style="width: 150px;height: 150px;">
                             </div>
                             <div class="col-lg-12 text-center" style="margin-bottom: 5px;">
                                 使用<span style="padding: 0 3px;color: #FF6700;">小米商城APP</span>扫一扫
@@ -136,7 +158,7 @@
         </div>
         <div class="col-md-12 text-center login_botton_top_botton">
             <span>小米公司版权所有-京ICP备10046444-</span>
-            <img src="img/129.png" >
+            <img src="img/129.png">
             <span>京公网安备11010802020134号-京ICP证110507号</span>
         </div>
     </div>

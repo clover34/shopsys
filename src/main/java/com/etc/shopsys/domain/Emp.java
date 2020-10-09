@@ -17,7 +17,7 @@ public class Emp implements Serializable {
     private String empname;// 员工姓名
     private String empaccount;// 员工账号
     private String password;// 密码
-    private int dimission;// 是否离职：1-离职 0-在职
+    private int dimission;// 是否离职：0-离职 1-在职
     private EmpType etid;// 职位编号
 
     // 全参构造方法

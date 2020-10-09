@@ -17,10 +17,7 @@ public interface OrderStateDao {
     boolean updataOrderStateByOsid(int osid, String state);
 
     // 查： 根据状态编号查询订单状态
-    Page<OrderState> findOrderStateByOsid(int osid,int currentPage, int sizePage);
-
-    // 查： 根据状态状态查询订单状态
-    Page<OrderState> findOrderStateByState(String state,int currentPage, int sizePage);
+    Page<OrderState> findOrderStateByOsid(int osid, int currentPage, int sizePage);
 
     // 查询所有订单状态
     List<OrderState> findAllOrderState();
@@ -30,4 +27,7 @@ public interface OrderStateDao {
 
     // 查：获取总记录数
     int findCount();
+
+    // 查：根据订单状态编号查询订单状态
+    OrderState findOSByOsid(int osid);
 }

@@ -10,7 +10,7 @@ public interface GoodsTypeService {
     //删：根据商品编号删除商品类型
     String deleteGoodsTypeById(String gtid);
     //改：根据商品编号修改商品类型
-    String updateGoodsTypeById(String gtid,String gtname);
+    String updateGoodsTypeById(String gtid, String gtname);
     //查：根据商品编号查询商品类型
     GoodsTyple findGoodsTypeById(String gtid);
     //查：根据商品名称查询商品类型

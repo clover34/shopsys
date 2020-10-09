@@ -132,8 +132,8 @@
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3 colminwidth">
                         <ul>
-                            <li><a href="javascript:">登录</a><span class="xm_nav_span">|</span></li>
-                            <li><a href="javascript:">注册</a><span class="xm_nav_span">|</span></li>
+                            <li><a href="javascript:">${user.username}</a><span class="xm_nav_span">|</span></li>
+<%--                            <li><a href="javascript:">注册</a><span class="xm_nav_span">|</span></li>--%>
                             <li><a href="javascript:">消息通知</a></li>
                             <li class="xm_nav_right_li_cart">
                                 <a href="javascript:">
@@ -239,7 +239,7 @@
                 <li><strong>账户管理</strong></li>
                 <li><a href="<%=application.getContextPath()%>/address?op=allAddressInfo"  target="myiframe">收货地址</a></li>
                 <li><a href="<%=application.getContextPath()%>/personal?op=findUser"    target="myiframe">个人信息</a></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=findUser"    target="myiframe">修改个人信息</a></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=User"    target="myiframe">修改个人信息</a></li>
             </ul>
         </div>
         <div class="col-md-10 div13">

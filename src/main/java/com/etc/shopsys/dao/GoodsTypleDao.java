@@ -10,7 +10,7 @@ boolean insertGoodsType(GoodsTyple goodsTyple);
 //删：根据商品编号删除商品类型
 boolean deleteGoodsTypeById(String gtid);
 //改：根据商品编号修改商品类型
-boolean updateGoodsTypeById(String gtid,String gtname);
+boolean updateGoodsTypeById(String gtid, String gtname);
 //查：根据商品编号查询商品类型
 GoodsTyple findGoodsTypeById(String gtid);
 //查：根据商品名称查询商品类型

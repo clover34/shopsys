@@ -74,10 +74,17 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
+    public Orders findOrdersInfoByUid(String uid) {
+        Orders uid1 = ordersDao.findOrdersInfoByUid(uid);
+        return uid1;
+    }
+
+    @Override
     public Page<Orders> findOrdersInfoByUid(String uid, int currentPage, int sizePage) {
         Page<Orders> uid1 = ordersDao.findOrdersInfoByUid(uid, currentPage, sizePage);
         return uid1;
     }
+
 
     @Override
     public Orders findOrdersInfoByCreateDate(Date createdate) {
@@ -95,5 +102,16 @@ public class OrdersServiceImpl implements OrdersService {
     public Page<Orders> findOrdersInfoByOsid(int osid, int currentPage, int sizePage) {
         Page<Orders> osid1 = ordersDao.findOrdersInfoByOsid(osid, currentPage, sizePage);
         return osid1;
+    }
+
+    /**
+     * 分页查询：查询所有订单记录
+     * @param currentPage
+     * @param sizePage
+     * @return
+     */
+    @Override
+    public Page<Orders> findAllOrder(int currentPage, int sizePage) {
+        return ordersDao.findAllOrder(currentPage, sizePage);
     }
 }

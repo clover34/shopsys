@@ -12,7 +12,7 @@ import java.util.List;
 public class Page<T> {
     private int currentPage;// 当前页
     private int prevPage;// 上一页
-    private int nextPgge;// 下一页
+    private int nextPage;// 下一页
     private int sizePage;// 页面显示记录数
     private int totalCount;// 总记录数
     private int totalPage;// 总页数
@@ -25,7 +25,7 @@ public class Page<T> {
         this.data = data;
         this.totalPage = totalCount % sizePage > 0 ? totalCount / sizePage + 1 : totalCount / sizePage;
         this.prevPage = currentPage - 1 > 0 ? currentPage - 1 : 1;
-        this.nextPgge = currentPage + 1 < totalPage ? currentPage + 1 : totalPage;
+        this.nextPage = currentPage + 1 < totalPage ? currentPage + 1 : totalPage;
     }
 
     public Page() {
@@ -37,7 +37,7 @@ public class Page<T> {
         return "Page{" +
                 "currentPage=" + currentPage +
                 ", prevPage=" + prevPage +
-                ", nextPgge=" + nextPgge +
+                ", nextPgge=" + nextPage +
                 ", sizePage=" + sizePage +
                 ", totalCount=" + totalCount +
                 ", totalPage=" + totalPage +
@@ -62,12 +62,12 @@ public class Page<T> {
         this.prevPage = prevPage;
     }
 
-    public int getNextPgge() {
-        return nextPgge;
+    public int getNextPage() {
+        return nextPage;
     }
 
-    public void setNextPgge(int nextPgge) {
-        this.nextPgge = nextPgge;
+    public void setNextPage(int nextPgge) {
+        this.nextPage = nextPgge;
     }
 
     public int getSizePage() {

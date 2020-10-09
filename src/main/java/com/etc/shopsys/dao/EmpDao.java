@@ -22,11 +22,11 @@ public interface EmpDao {
     // 查：根据姓名查询员工信息
     Page<Emp> findAllEmp(int currentPage, int sizePage);
     // 模糊查询：根据姓名查询员工信息
-    Page<Emp> findEmpLikeByName(String empname,int currentPage, int sizePage);
+    Page<Emp> findEmpLikeByName(String empname, int currentPage, int sizePage);
     // 查询：查询在职离职员工
-    Page<Emp> findEmpIsDimission(int dimission,int currentPage, int sizePage);
+    Page<Emp> findEmpIsDimission(int dimission, int currentPage, int sizePage);
     // 查询：根据职位编号查询员工信息
-    Page<Emp> findEmpByEtid(int etid,int currentPage, int sizePage);
+    Page<Emp> findEmpByEtid(int etid, int currentPage, int sizePage);
     // 查询：查询员工表总记录数
     int findEmpCount();
 
