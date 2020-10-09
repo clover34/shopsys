@@ -18,6 +18,8 @@ public interface UserAddressService {
     String deleteAddress(String UUID);
     // 修改：根据UUID修改用户地址信息
     String updateAddress(UserAddress ua);
+    // 查:根据UUID查询用户地址信息
+    UserAddress findAddressByUUID(String UUID);
     // 查：查询当前用户地址信息根据用户编号
     List<UserAddress> findAllAddress(String uid);
     // 查：查询总记录数

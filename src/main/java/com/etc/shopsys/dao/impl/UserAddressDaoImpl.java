@@ -72,6 +72,12 @@ public class UserAddressDaoImpl extends BaseDao<UserAddress> implements UserAddr
                 ua.getUUID());
     }
 
+    @Override
+    public UserAddress findAddressByUUID(String UUID) {
+        String sql = "select * from useraddress where uuid=?";
+        return super.executeQueryOne(sql,UUID);
+    }
+
     /**
      * 查询：根据用户编号查询用户所以地址信息
      * @param uid

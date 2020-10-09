@@ -48,6 +48,11 @@ public class UserAddressServiceImpl implements UserAddressService {
         return uaDao.updateAddress(ua) ? "修改地址成功" : "修改地址失败";
     }
 
+    @Override
+    public UserAddress findAddressByUUID(String UUID) {
+        return uaDao.findAddressByUUID(UUID);
+    }
+
     /**
      * 查询：根据用户编号查询地址信息
      * @param uid

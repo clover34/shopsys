@@ -40,16 +40,22 @@ public class OrdersServlet extends HttpServlet {
         }
     }
 
-    private void ordersPage(HttpServletRequest req, HttpServletResponse resp) {
-
-
+    public void ordersPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pageNum = req.getParameter("pageNum");
+        User user = (User) req.getSession().getAttribute("user");
+        //                                                               用户编号         当前页       页面显示记录数
+        Page<Orders> ordersInfoByUid = ordersService.findOrdersInfoByUid(user.getUid(), Integer.parseInt(pageNum), 5);
+        req.setAttribute("ordersInfoByUid",ordersInfoByUid);
+        // 更改页面显示数据条后，要跳转到我的订单
+        req.getRequestDispatcher("myOrders.jsp").forward(req,resp);
 
 
     }
 
-    private void allOrders(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void allOrders(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Orders> allOrders = ordersService.findAllOrders();
         req.setAttribute("allOrders",allOrders);
+        // 跳转到我的订单
         req.getRequestDispatcher("myOrders.jsp").forward(req,resp);
 
     }
