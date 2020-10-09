@@ -40,13 +40,13 @@ public class TrolleyServlet extends HttpServlet {
             this.findAll(req,resp);
         }
     }
-    public void findAll(HttpServletRequest req,HttpServletResponse resp){
+    public void findAll(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
         List<Trolley> list=this.service.findAllTrolley();
         Goods goodsPage=null;
         for (Trolley trolley : list) {
              goodsPage=this.goodsService.findGoodsById(trolley.getGid());
         }
         req.setAttribute("goodsPage",goodsPage);
-        req.getRequestDispatcher("trolley.jsp");
+        req.getRequestDispatcher("trolley.jsp").forward(req,resp);
     }
 }

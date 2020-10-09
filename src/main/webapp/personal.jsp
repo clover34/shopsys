@@ -235,17 +235,17 @@
         <div class="col-md-2 div12">
             <ul>
                 <li><strong>订单中心</strong></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=allOrder">我的订单</a></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=allOrderState">评价晒单</a></li>
-                <li><strong>我的个人中心</strong></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=allUser">消息通知</a></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=allUserAddress">收货地址</a></li>
+                <li><a href="<%=application.getContextPath()%>/orders?op=allOrders"  target="myiframe">我的订单</a></li>
                 <li><strong>账户管理</strong></li>
-                <li><a href="<%=application.getContextPath()%>/personal?op=findUser">个人信息</a></li>
+                <li><a href="<%=application.getContextPath()%>/address?op=allAddressInfo"  target="myiframe">收货地址</a></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=findUser"    target="myiframe">个人信息</a></li>
+                <li><a href="<%=application.getContextPath()%>/personal?op=findUser"    target="myiframe">修改个人信息</a></li>
             </ul>
         </div>
         <div class="col-md-10 div13">
+            <iframe id="myiframe" name="myiframe" width="100%" height="100%">
 
+            </iframe>
         </div>
     </div>
 </div>

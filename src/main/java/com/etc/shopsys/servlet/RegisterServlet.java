@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 @WebServlet(name = "registerServlet",urlPatterns = "/user")
 public class RegisterServlet extends HttpServlet {
     private UserService service;
@@ -44,6 +43,7 @@ public class RegisterServlet extends HttpServlet {
 
         //调用业务层
        User u=service.findUserByName(username);
+        System.out.println(u);
         if (u ==null){
             User user = new User();
             user.setUsername(username);
@@ -51,11 +51,14 @@ public class RegisterServlet extends HttpServlet {
             user.setPhone(phone);
             user.setEmail(email);
             String info=service.insertUser(user);
+            System.out.println("info:"+info);
             req.setAttribute("info",info);
+            req.getRequestDispatcher("userLogin.jsp").forward(req,resp);
         }else {
+            String info="用户名已存在,添加失败";
+            req.setAttribute("info",info);
             req.getRequestDispatcher("register.jsp").forward(req,resp);
-
         }
-        req.getRequestDispatcher("userLogin.jsp").forward(req,resp);
+
     }
 }

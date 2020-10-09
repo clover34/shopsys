@@ -152,7 +152,7 @@
                         <span class="glyphicon glyphicon-user"></span>
                     </span>
                     <input type="text"name="username" id="username"onblur="testUsername()" placeholder="请输入用户名"class="form-control"aria-describedby="basic-addon1">
-                    <span id="p2"style="color:red;"></span>
+                    <span id="p2"style="color:red;">${info}</span>
                 </div>
                 <%--密码--%>
                 <div class="input-group">

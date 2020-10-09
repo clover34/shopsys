@@ -52,11 +52,11 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
 
     @Override
     public List<GoodsTyple> findAllGoodsType() {
-        return this.findAllGoodsType();
+        return this.goodsTypleDao.findAllGoodsType();
     }
 
     @Override
     public int findGoodsCount() {
-        return this.findGoodsCount();
+        return this.goodsTypleDao.findGoodsCount();
     }
 }

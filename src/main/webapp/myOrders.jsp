@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>我的订单</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <script src="js/jquery-1.11.3.js" type="text/javascript" charset="UTF-8"></script>
     <script src="js/bootstrap.js" type="text/javascript" charset="UTF-8"></script>

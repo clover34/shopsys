@@ -7,7 +7,6 @@ import com.etc.shopsys.service.GoodsService;
 import com.etc.shopsys.service.TrolleyService;
 import com.etc.shopsys.service.impl.GoodsServiceImpl;
 import com.etc.shopsys.service.impl.TrolleyServiceImpl;
-import com.mysql.cj.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

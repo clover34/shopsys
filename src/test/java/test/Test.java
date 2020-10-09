@@ -18,10 +18,10 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-         TrolleyDao trolleyDao=new TrolleyDaoImpl();
+        /* TrolleyDao trolleyDao=new TrolleyDaoImpl();
          boolean trolley=trolleyDao.deleteTrolleyById("1");
          System.out.println(trolley);
-       /*boolean i=trolleyDao.insertTrolley(new Trolley("1","1",2));
+       boolean i=trolleyDao.insertTrolley(new Trolley("1","1",2));
         boolean i=trolleyDao.updateTrolleyById("1","1","3");
         Trolley trolley=trolleyDao.findTrolleyById("1");
         Page<Trolley> page=trolleyDao.findAllTrolley(1,1);
